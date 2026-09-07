@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320" role="img" aria-labelledby="title desc">
+  <title id="title">Mobile to HarmonyOS Porting mark</title>
+  <desc id="desc">Two mobile source panels cross a bridge to a HarmonyOS target.</desc>
+  <defs>
+    <linearGradient id="surface" x1="54" y1="34" x2="424" y2="286" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#16233A"/>
+      <stop offset="1" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="bridge" x1="181" y1="160" x2="299" y2="160" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#72B7FF"/>
+      <stop offset="1" stop-color="#4EE1C1"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="480" height="320" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0B1220" flood-opacity=".22"/>
+    </filter>
+  </defs>
+  <rect x="24" y="24" width="432" height="272" rx="72" fill="url(#surface)" filter="url(#shadow)"/>
+  <circle cx="106" cy="94" r="8" fill="#72B7FF"/>
+  <circle cx="106" cy="226" r="8" fill="#4EE1C1"/>
+  <path d="M106 102V130M106 190V218M114 160H178" stroke="#72B7FF" stroke-width="12" stroke-linecap="round"/>
+  <rect x="72" y="130" width="68" height="60" rx="20" fill="#1C2D48" stroke="#72B7FF" stroke-width="8"/>
+  <path d="M178 160H270" stroke="url(#bridge)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M250 132L280 160L250 188" fill="none" stroke="#4EE1C1" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="300" y="94" width="108" height="132" rx="30" fill="#F8FBFF"/>
+  <path d="M329 122V198M379 122V198M329 160H379" fill="none" stroke="#14213A" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="348" y="60" width="12" height="22" rx="6" fill="#4EE1C1"/>
+  <rect x="348" y="238" width="12" height="22" rx="6" fill="#72B7FF"/>
+</svg>
