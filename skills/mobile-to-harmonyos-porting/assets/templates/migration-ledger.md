@@ -12,12 +12,13 @@
 | Target dirty-state disposition | |
 | HarmonyOS API / device / SDK / firmware | |
 | Requested page and function scope | |
+| Exact UI equivalence standard | Every visible source element must match its source content, size, position, shape, style, asset, and visible state; only written, element-specific user exceptions may deviate. |
 
 ## Phase A: Page UI Matrix
 
-| Page group | Priority | Source behavior and routes | Source assets / layout provenance | HarmonyOS UI mapping | Required states | Required `DEVICE_UI` proof | Status | Next action |
+| Page group | Priority | Source behavior and routes | Source UI inventory and exact comparison | HarmonyOS UI mapping | Required states | Required `DEVICE_UI` proof | Status | Next action |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| | P0/P1/P2 | | paths, hashes, dimensions, fonts | | loading/empty/error/permission/unavailable | source-asset and visual evidence | NOT TESTED/BLOCKED/PASS/FAIL | |
+| | P0/P1/P2 | | text/components/icons/graphics/assets; content, size, position, shape, style, state | | loading/empty/error/permission/unavailable | final-package, element-by-element exact-match evidence | NOT TESTED/BLOCKED/PASS/FAIL | |
 
 ## Phase B: Functional Category Matrix
 

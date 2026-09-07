@@ -1,7 +1,7 @@
 interface:
   display_name: "Mobile to HarmonyOS Porting"
-  short_description: "Bootstrap or stage mobile ports to HarmonyOS"
-  default_prompt: "Use $mobile-to-harmonyos-porting to bootstrap a HarmonyOS target if needed, then migrate this source snapshot page by page and function category by function category."
+  short_description: "Stage exact-fidelity mobile ports to HarmonyOS"
+  default_prompt: "Use $mobile-to-harmonyos-porting to bootstrap a HarmonyOS target if needed, then migrate this source snapshot with every visible source element exact before each function category."
 
 policy:
   allow_implicit_invocation: true

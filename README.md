@@ -7,7 +7,7 @@
 <h1 align="center">Mobile to HarmonyOS Porting</h1>
 
 <p align="center">
-  <em>Port the interface exactly. Prove the behavior separately.</em>
+  <em>Reproduce every visible source element exactly. Prove the behavior separately.</em>
 </p>
 
 <p align="center">
@@ -17,7 +17,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Codex-Skill-111827?style=flat-square" alt="Codex Skill">
   <img src="https://img.shields.io/badge/migration-UI%20then%20function-2F80ED?style=flat-square" alt="UI first, functional categories second">
-  <img src="https://img.shields.io/badge/source%20UI-assets%20only-00A884?style=flat-square" alt="Source UI assets only">
+  <img src="https://img.shields.io/badge/source%20UI-exact%20match%20required-00A884?style=flat-square" alt="Source UI assets only">
   <img src="https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-111827?style=flat-square" alt="MIT or Apache-2.0">
 </p>
 
@@ -48,11 +48,11 @@ function-second sequence begins.
 Accept each small page group before porting its new behavior. A polished page is never
 evidence that its data, hardware, service, permission, or lifecycle behavior works.
 
-Unless the user explicitly authorizes an exception, every UI asset and visible design
-choice must come from the migrated source snapshot. The Skill forbids generated,
-searched, purchased, substituted, or creatively redesigned UI material. If the source
-asset is missing, its access/license is unclear, or HarmonyOS cannot render it
-equivalently, stop and record `BLOCKED`—do not invent a replacement.
+**Exact means element-by-element equality, not “close enough.”** Every user-visible source element—text, components, icons, graphics, images, animation assets, fonts, materials, navigation affordances, and visible states—must match the migrated source exactly in content, size, position, shape, asset, typography, color, spacing, layering, opacity, geometry, corner treatment, and every other visible characteristic.
+
+A native default, hand recreation, approximate layout, or any remaining mismatch is not a successful migration. Do not accept the page group or begin its functional category until final-package evidence shows an exact match for every recorded element.
+
+Unless the user explicitly authorizes a written, element-specific exception, every UI asset and visible design decision must come from the migrated source snapshot. The Skill forbids generated, searched, purchased, substituted, or creatively redesigned UI material. If the source asset is missing, its access/license is unclear, or HarmonyOS cannot render it equivalently, stop and record `BLOCKED`—do not invent a replacement.
 
 ## What you get
 
@@ -175,9 +175,11 @@ Phase 0 不迁移任何页面或功能；验证完成后，才开始强制执行
 每个小页面分组验收通过后，才可以迁移它的新功能。页面视觉完成并不等于数据、硬件、
 服务、权限或生命周期行为已经验证。
 
-除非用户明确授权例外，所有 UI 素材和可见设计决策必须来自被迁移的源项目快照。Skill
-禁止生成、搜索、购买、替换或自行创作 UI 素材。若源素材缺失、访问或授权边界不清，
-或 HarmonyOS 无法等效呈现，必须停止并记录为 `BLOCKED`，不得自行补一个替代方案。
+**“一模一样”是逐元素相等，不是“看起来差不多”。** 所有用户可见的源项目元素——文字、组件、图标、图形、图片、动画素材、字体、材质、导航入口和可见状态——都必须与源项目完全一致：内容、大小、位置、形状、素材、字体排印、颜色、间距、层级、透明度、几何形态、圆角处理及其他一切可见属性均不得有差异。
+
+原生默认控件、手工重绘、近似布局或任何残留差异都不能算迁移成功。每个记录元素都必须在最终包中得到完全一致的证据；在此之前不得验收页面分组，也不得开始对应功能分类。
+
+除非用户明确书面授权某个具体元素的例外，所有 UI 素材和可见设计决策必须来自被迁移的源项目快照。Skill 禁止生成、搜索、购买、替换或自行创作 UI 素材。若源素材缺失、访问或授权边界不清，或 HarmonyOS 无法等效呈现，必须停止并记录为 `BLOCKED`，不得自行补一个替代方案。
 
 ## Skill 提供什么
 

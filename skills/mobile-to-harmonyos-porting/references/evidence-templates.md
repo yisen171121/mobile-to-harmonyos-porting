@@ -9,7 +9,7 @@ Copy [the ledger template](../assets/templates/migration-ledger.md) into the tar
 | Field | Record |
 | --- | --- |
 | Capability and scope | One page group or one functional category and its boundaries. |
-| UI provenance | Source asset paths, hashes where practical, dimensions, fonts, layout measurements, and explicit user-approved exceptions. |
+| UI provenance | Element-by-element source record for text, components, icons, graphics, images, fonts, materials, and visible states; each item's content, size, position, shape, style, asset, and user-approved exception. |
 | Source evidence | Revision, file/function path, call-chain summary, official source/SDK/protocol reference. |
 | Target mapping | Target files/layers, platform API, supported OS/device/SDK conditions. |
 | States | Initial, active, success, failure, cancel, timeout, disconnect, recovery, and release states. |
