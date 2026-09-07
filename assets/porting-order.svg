@@ -1,28 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450" role="img" aria-labelledby="title desc">
   <title id="title">Staged mobile-to-HarmonyOS porting order</title>
-  <desc id="desc">Source snapshot flows to page UI groups, then accepted UI, then functional categories, then verified release evidence.</desc>
-  <rect width="1200" height="360" fill="#f8fafc" rx="28"/>
-  <text x="72" y="70" fill="#0f172a" font-family="Arial, sans-serif" font-size="31" font-weight="700">Stage the port in the only safe order</text>
-  <text x="72" y="108" fill="#475569" font-family="Arial, sans-serif" font-size="19">Optional Phase 0 target bootstrap · UI page groups first · functional categories second</text>
-  <text x="72" y="140" fill="#64748b" font-family="Arial, sans-serif" font-size="16">No target yet? Bootstrap only the package, module, SDK baseline, and launch path before Phase A.</text>
+  <desc id="desc">A source snapshot flows through page UI groups, functional categories, and final evidence without overlapping labels.</desc>
+  <rect width="1200" height="450" rx="30" fill="#F8FAFC"/>
+  <g font-family="Arial, sans-serif">
+    <text x="72" y="72" fill="#0F172A" font-size="32" font-weight="700">Stage the port in the only safe order</text>
+    <text x="72" y="110" fill="#475569" font-size="19">Optional Phase 0 target bootstrap · UI page groups first · functional categories second</text>
+    <text x="72" y="140" fill="#64748B" font-size="16">No target yet? Bootstrap only the package, module, SDK baseline, and launch path before Phase A.</text>
+  </g>
   <g font-family="Arial, sans-serif" text-anchor="middle">
-    <rect x="65" y="170" width="210" height="105" rx="18" fill="#e2e8f0"/>
-    <text x="170" y="214" fill="#0f172a" font-size="21" font-weight="700">Source snapshot</text>
-    <text x="170" y="244" fill="#475569" font-size="16">assets · states · routes</text>
-    <path d="M292 222h70" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
-    <path d="M352 210l18 12-18 12" fill="none" stroke="#94a3b8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="385" y="170" width="210" height="105" rx="18" fill="#dbeafe"/>
-    <text x="490" y="214" fill="#1d4ed8" font-size="21" font-weight="700">Phase A · Page UI</text>
-    <text x="490" y="244" fill="#1e40af" font-size="16">small groups, exact source fidelity</text>
-    <path d="M612 222h70" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
-    <path d="M672 210l18 12-18 12" fill="none" stroke="#94a3b8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="705" y="170" width="210" height="105" rx="18" fill="#fef3c7"/>
-    <text x="810" y="214" fill="#a16207" font-size="21" font-weight="700">Phase B · Functions</text>
-    <text x="810" y="244" fill="#92400e" font-size="16">one category at a time</text>
-    <path d="M932 222h70" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
-    <path d="M992 210l18 12-18 12" fill="none" stroke="#94a3b8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="1025" y="170" width="110" height="105" rx="18" fill="#dcfce7"/>
-    <text x="1080" y="214" fill="#166534" font-size="21" font-weight="700">Evidence</text>
-    <text x="1080" y="244" fill="#166534" font-size="16">release-ready</text>
+    <g fill="none" stroke="#94A3B8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M280 270H314M302 258L320 270L302 282"/>
+      <path d="M578 270H634M622 258L640 270L622 282"/>
+      <path d="M908 270H964M952 258L970 270L952 282"/>
+    </g>
+    <rect x="64" y="190" width="198" height="160" rx="22" fill="#E2E8F0"/>
+    <text x="163" y="250" fill="#0F172A" font-size="20" font-weight="700">Source snapshot</text>
+    <text x="163" y="290" fill="#475569" font-size="16">assets · states · routes</text>
+    <rect x="340" y="190" width="220" height="160" rx="22" fill="#DBEAFE"/>
+    <text x="450" y="238" fill="#1D4ED8" font-size="19" font-weight="700">Phase A</text>
+    <text x="450" y="268" fill="#1D4ED8" font-size="19" font-weight="700">Page UI</text>
+    <text x="450" y="307" fill="#1E40AF" font-size="16">small groups</text>
+    <text x="450" y="331" fill="#1E40AF" font-size="16">exact source fidelity</text>
+    <rect x="660" y="190" width="230" height="160" rx="22" fill="#FEF3C7"/>
+    <text x="775" y="238" fill="#A16207" font-size="19" font-weight="700">Phase B</text>
+    <text x="775" y="268" fill="#A16207" font-size="17" font-weight="700">Functional categories</text>
+    <text x="775" y="315" fill="#92400E" font-size="16">one category at a time</text>
+    <rect x="990" y="190" width="146" height="160" rx="22" fill="#DCFCE7"/>
+    <text x="1063" y="250" fill="#166534" font-size="19" font-weight="700">Evidence</text>
+    <text x="1063" y="290" fill="#166534" font-size="16">release-ready</text>
   </g>
 </svg>
