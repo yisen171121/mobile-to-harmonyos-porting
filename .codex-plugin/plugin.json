@@ -1,0 +1,18 @@
+{
+  "name": "mobile-to-harmonyos-porting",
+  "version": "0.1.0",
+  "description": "Plan and verify staged mobile application ports to HarmonyOS.",
+  "author": {
+    "name": "yisen171121"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Mobile to HarmonyOS Porting",
+    "shortDescription": "Stage page UI, then functional ports to HarmonyOS.",
+    "longDescription": "A reusable, evidence-led workflow that ports mobile pages first and function categories second into an existing HarmonyOS app.",
+    "developerName": "yisen171121",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Use $mobile-to-harmonyos-porting to migrate this source snapshot page by page, then function category by function category."
+  }
+}

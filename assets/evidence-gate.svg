@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="390" viewBox="0 0 1200 390" role="img" aria-labelledby="title desc">
+  <title id="title">Evidence gate for mobile-to-HarmonyOS porting</title>
+  <desc id="desc">Source behavior, HarmonyOS implementation, and final evidence all meet before acceptance. Any missing side leads to blocked.</desc>
+  <rect width="1200" height="390" fill="#f8fafc" rx="28"/>
+  <text x="72" y="70" fill="#0f172a" font-family="Arial, sans-serif" font-size="31" font-weight="700">Accept only when all three sides agree</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <path d="M600 115L930 302H270z" fill="#eff6ff" stroke="#60a5fa" stroke-width="5" stroke-linejoin="round"/>
+    <circle cx="600" cy="115" r="55" fill="#dbeafe"/>
+    <text x="600" y="108" fill="#1d4ed8" font-size="18" font-weight="700">Source behavior</text>
+    <text x="600" y="132" fill="#1e40af" font-size="14">states · contracts</text>
+    <circle cx="270" cy="302" r="55" fill="#fef3c7"/>
+    <text x="270" y="295" fill="#a16207" font-size="18" font-weight="700">HarmonyOS</text>
+    <text x="270" y="319" fill="#92400e" font-size="14">implementation</text>
+    <circle cx="930" cy="302" r="55" fill="#dcfce7"/>
+    <text x="930" y="295" fill="#166534" font-size="18" font-weight="700">Final evidence</text>
+    <text x="930" y="319" fill="#166534" font-size="14">package · device</text>
+    <circle cx="600" cy="250" r="66" fill="#0f172a"/>
+    <text x="600" y="244" fill="#ffffff" font-size="22" font-weight="700">ACCEPT</text>
+    <text x="600" y="270" fill="#cbd5e1" font-size="15">only with all sides</text>
+  </g>
+  <text x="600" y="365" fill="#b91c1c" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">Any missing or conflicting side = BLOCKED / NOT TESTED</text>
+</svg>
