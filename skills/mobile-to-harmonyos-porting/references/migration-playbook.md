@@ -19,13 +19,13 @@ Inventory source pages, routes, visual assets, navigation, typography, safe area
 For each page group:
 
 1. Trace the source page and navigation call chain.
-2. Verify that every image, icon, font, animation, color, geometry, and visible state comes from the source snapshot. Unless the user explicitly approves an exception, do not generate, search, substitute, or creatively redesign assets or visuals.
-3. Map visible states to existing HarmonyOS layers and native layout behavior without changing the source design.
-4. Render explicit unavailable state for functions not yet migrated.
-5. Test navigation, return behavior, UI state, accessibility, supported layouts, source-asset provenance, and exact visual evidence on the final package.
-6. Record `DEVICE_UI` evidence before allowing that group's functional migration.
+2. Inventory every visible source element: text, component, icon, graphic, image, animation, font, material, navigation affordance, and visible state.
+3. Record and reproduce every visible element's content, dimensions, position, shape, asset, typography, color, spacing, layering, opacity, geometry, corner treatment, and other visible characteristics exactly. Unless the user explicitly approves a scoped exception, do not generate, search, substitute, use a native default, or creatively redesign any UI material.
+4. Map the source design to HarmonyOS layers without changing its user-visible result. Render an explicit source-matched unavailable state for functions not yet migrated.
+5. Compare the identified final package with the recorded source under the same comparison conditions. Any mismatch—including text, a component, icon, graphic, material, size, position, style, or visible state—is `FAIL`, not “close enough.”
+6. Record `DEVICE_UI` evidence only after every recorded visible element matches. Only then may that group's functional migration begin.
 
-If source assets are missing, access/license is unclear, or platform behavior prevents exact rendering, stop the page group as `BLOCKED` and ask the user. UI acceptance proves only the page group. It does not prove real data, permissions, devices, network, lifecycle, or backend behavior.
+If source assets are missing, access/license is unclear, or a platform constraint prevents exact rendering or interaction, stop the page group as `BLOCKED` and ask the user. A written, element-specific user exception is the only way to record a deviation. UI acceptance proves only the page group; it does not prove real data, permissions, devices, network, lifecycle, or backend behavior.
 
 ## 3. Phase B: Functional Category Migration
 
