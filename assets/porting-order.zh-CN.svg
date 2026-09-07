@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450" role="img" aria-labelledby="title desc">
+  <title id="title">移动端到 HarmonyOS 的分阶段迁移顺序</title>
+  <desc id="desc">源项目快照依次经过页面 UI 分组、功能分类和最终证据；所有文字均位于对应卡片中。</desc>
+  <rect width="1200" height="450" rx="30" fill="#F8FAFC"/>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif">
+    <text x="72" y="72" fill="#0F172A" font-size="32" font-weight="700">以唯一安全顺序分阶段迁移</text>
+    <text x="72" y="110" fill="#475569" font-size="19">可选阶段 0 目标工程初始化 · 先迁移页面 UI 分组 · 再迁移功能分类</text>
+    <text x="72" y="140" fill="#64748B" font-size="16">尚无目标工程？仅初始化包名、模块、SDK 基线和启动路径，再进入阶段 A。</text>
+  </g>
+  <g font-family="Arial, 'Microsoft YaHei', sans-serif" text-anchor="middle">
+    <g fill="none" stroke="#94A3B8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M280 270H314M302 258L320 270L302 282"/>
+      <path d="M578 270H634M622 258L640 270L622 282"/>
+      <path d="M908 270H964M952 258L970 270L952 282"/>
+    </g>
+    <rect x="64" y="190" width="198" height="160" rx="22" fill="#E2E8F0"/>
+    <text x="163" y="250" fill="#0F172A" font-size="20" font-weight="700">源项目快照</text>
+    <text x="163" y="290" fill="#475569" font-size="16">素材 · 状态 · 路由</text>
+    <rect x="340" y="190" width="220" height="160" rx="22" fill="#DBEAFE"/>
+    <text x="450" y="238" fill="#1D4ED8" font-size="19" font-weight="700">阶段 A</text>
+    <text x="450" y="268" fill="#1D4ED8" font-size="19" font-weight="700">页面 UI</text>
+    <text x="450" y="307" fill="#1E40AF" font-size="16">小分组</text>
+    <text x="450" y="331" fill="#1E40AF" font-size="16">严格源端一致</text>
+    <rect x="660" y="190" width="230" height="160" rx="22" fill="#FEF3C7"/>
+    <text x="775" y="238" fill="#A16207" font-size="19" font-weight="700">阶段 B</text>
+    <text x="775" y="268" fill="#A16207" font-size="19" font-weight="700">功能分类</text>
+    <text x="775" y="315" fill="#92400E" font-size="16">一次只迁移一类</text>
+    <rect x="990" y="190" width="146" height="160" rx="22" fill="#DCFCE7"/>
+    <text x="1063" y="250" fill="#166534" font-size="19" font-weight="700">证据</text>
+    <text x="1063" y="290" fill="#166534" font-size="16">可发布</text>
+  </g>
+</svg>
