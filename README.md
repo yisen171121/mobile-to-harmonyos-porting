@@ -167,7 +167,7 @@ Dual-licensed under [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE), at your 
 Phase 0 不迁移任何页面或功能；验证完成后，才开始强制执行“UI 优先、功能其次”的迁移顺序。
 
 <p align="center">
-  <img src="assets/porting-order.svg" width="760" alt="可选的 Phase 0 目标工程初始化，再迁移 UI 页面分组、功能分类和证据">
+  <img src="assets/porting-order.zh-CN.svg" width="760" alt="可选的 Phase 0 目标工程初始化，再迁移 UI 页面分组、功能分类和证据">
 </p>
 
 ## 不可绕过的规则
@@ -187,7 +187,7 @@ Phase 0 不迁移任何页面或功能；验证完成后，才开始强制执行
 - Codex 插件清单与可独立安装的 Skill 文件夹。
 
 <p align="center">
-  <img src="assets/evidence-gate.svg" width="760" alt="源端、目标端与验证证据门禁">
+  <img src="assets/evidence-gate.zh-CN.svg" width="760" alt="源端、目标端与验证证据门禁">
 </p>
 
 它**不会**自动翻译源代码、提供厂商私有协议实现，或把缺失的平台/固件证据包装成通过。
