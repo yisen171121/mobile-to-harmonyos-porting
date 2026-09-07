@@ -1,6 +1,6 @@
 ---
 name: mobile-to-harmonyos-porting
-description: Use when incrementally porting or updating an Android, iOS, Flutter, React Native, or shared-native mobile app into an existing or newly initialized HarmonyOS target, especially where SDKs, hardware, background behavior, data deletion, or release evidence make a rewrite unsafe.
+description: Use when incrementally porting or updating an Android, iOS, Flutter, React Native, or shared-native mobile app into an existing or newly initialized HarmonyOS target whose source UI requires exact element-level fidelity across text, components, icons, graphics, assets, layout, and visible states.
 ---
 
 # Mobile to HarmonyOS Porting
@@ -14,13 +14,15 @@ Treat a port as behavior preservation with explicit platform differences, never 
 2. **Functions second:** after the relevant page group is accepted, migrate one functional category at a time: data/storage, permissions, networking, device/BLE, background/lifecycle, or AI/tool behavior. A UI pass is not functional evidence.
 3. Do not merge unrelated page polish and functional categories into one slice. If a source feature requires its function to render safely, use explicit unavailable state until the function slice is verified.
 
-## UI Fidelity and Asset Provenance
+## Exact UI Equivalence and Asset Provenance
 
-Unless the user explicitly authorizes an exception, every UI asset and visual decision must come from the migrated source snapshot: images, icons, fonts, illustrations, animation assets, color, spacing, typography, geometry, navigation structure, and visible state. Do not generate, search for, purchase, substitute, reinterpret, or creatively improve UI material. Do not use “similar” system icons or platform defaults.
+Unless the user explicitly authorizes a scoped exception, every UI asset and visual decision must come from the migrated source snapshot. Do not generate, search for, purchase, substitute, reinterpret, or creatively improve UI material. Do not use “similar” system icons or platform defaults.
 
-Before each page group, inventory source asset paths, hashes where practical, dimensions, font files, visible states, and layout measurements. Reuse or faithfully translate the source material only after confirming its license/access boundary. Do not copy those assets into this public Skill repository.
+**Exact means element-by-element equality, not “close enough.”** All user-visible source elements—text, components, icons, graphics, images, animation assets, fonts, materials, navigation affordances, and visible states—must retain the same content, dimensions, position, shape, asset, typography, color, spacing, layering, opacity, geometry, corner treatment, and other visible characteristics in the HarmonyOS target.
 
-The target UI must match the source UI exactly within the recorded platform-rendering evidence. If an asset is absent, provenance/license is unclear, or a HarmonyOS platform constraint prevents an equivalent rendering or interaction, mark the page group `BLOCKED` and ask the user. Never fill the gap with an original asset or design decision.
+Before each page group, inventory source asset paths, hashes where practical, dimensions, font files, visible states, and layout measurements. Build a source-to-target comparison record for every user-visible element and verify it on the final package under recorded comparison conditions. A native default, a hand-recreated element, an approximate layout, or any remaining size, position, text, component, icon, graphic, material, or visual-state mismatch is a failed UI comparison.
+
+Do not mark the page group accepted or start its functional migration until every recorded visible element matches the source exactly. If an asset is absent, provenance/license is unclear, or a HarmonyOS constraint prevents exact rendering or interaction, mark the page group `BLOCKED` and ask the user. Only a written, element-specific user exception may permit a documented deviation; never invent a replacement or call a near match successful.
 
 ## First Actions
 
@@ -36,7 +38,7 @@ Do not implement or accept a capability until its source behavior, HarmonyOS imp
 | Condition | Required decision |
 | --- | --- |
 | No HarmonyOS target exists | Bootstrap the smallest buildable target and record its package/module/toolchain identity. Do not migrate a source page or function as part of bootstrap. |
-| A page group lacks source-asset provenance or exact UI evidence on the final package | Do not start its new functional migration; keep unavailable behavior explicit. |
+| A page group has missing provenance, incomplete element comparison, or any visible mismatch in text, components, icons, graphics, assets, size, position, style, or state | Mark the UI comparison `FAIL` or `BLOCKED`; do not accept the page group or start its functional migration. |
 | Device data can be deleted, overwritten, sent, or charged | Require a protocol contract, confirmation boundary, idempotency/late-event plan, and destructive-flow test. Otherwise `BLOCKED`. |
 | Android or iOS relies on background work, services, alarms, or lifecycle callbacks | Verify the HarmonyOS equivalent and limits. A platform constraint is not a bug to hide. |
 | Tests or screenshots belong to another source snapshot or package | Do not transfer them. Rebuild, identify the package, and rerun relevant evidence. |
@@ -52,6 +54,7 @@ For a wearable history page, first port and verify the list, loading, empty, per
 
 - “The API names look equivalent.”
 - “The widget looks right, so the feature is done.”
+- “The native font, default icon, or a few pixels of layout difference is close enough.”
 - “The old test suite passed.”
 - “HTTP 200 means the fact is true.”
 - “Cancel only needs to hide the UI.”
