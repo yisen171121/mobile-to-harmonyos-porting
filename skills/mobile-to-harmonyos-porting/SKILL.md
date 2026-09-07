@@ -1,14 +1,15 @@
 ---
 name: mobile-to-harmonyos-porting
-description: Use when incrementally porting or updating an Android, iOS, Flutter, React Native, or shared-native mobile app in an existing HarmonyOS app, especially where SDKs, hardware, background behavior, data deletion, or release evidence make a rewrite unsafe.
+description: Use when incrementally porting or updating an Android, iOS, Flutter, React Native, or shared-native mobile app into an existing or newly initialized HarmonyOS target, especially where SDKs, hardware, background behavior, data deletion, or release evidence make a rewrite unsafe.
 ---
 
 # Mobile to HarmonyOS Porting
 
-Treat a port as behavior preservation with explicit platform differences, never as source-file conversion. Keep upstream source read-only, preserve target-user changes, and stop instead of guessing at destructive or unsupported behavior.
+Treat a port as behavior preservation with explicit platform differences, never as source-file conversion. Keep upstream source read-only, preserve target-user changes, and stop instead of guessing at destructive or unsupported behavior. The target may already exist or begin as a minimal HarmonyOS project.
 
 ## Non-Negotiable Migration Order
 
+0. **Target bootstrap only when absent:** create and build the smallest HarmonyOS target needed to establish its package identity, module boundary, SDK baseline, and launch path. This is not a feature or UI migration.
 1. **UI first:** migrate and accept user-visible pages in small page groups before migrating their new functional behavior. For each group, confirm information hierarchy, navigation, unavailable/error/loading states, accessibility, supported layouts, and final-package UI evidence.
 2. **Functions second:** after the relevant page group is accepted, migrate one functional category at a time: data/storage, permissions, networking, device/BLE, background/lifecycle, or AI/tool behavior. A UI pass is not functional evidence.
 3. Do not merge unrelated page polish and functional categories into one slice. If a source feature requires its function to render safely, use explicit unavailable state until the function slice is verified.
@@ -23,7 +24,7 @@ The target UI must match the source UI exactly within the recorded platform-rend
 
 ## First Actions
 
-1. Freeze source and target identities: revision, branch, dirty state, build/package identity, supported devices, SDK/firmware, and available credentials. Never copy credentials into notes or output.
+1. Freeze source and target identities: revision, branch, dirty state, build/package identity, supported devices, SDK/firmware, and available credentials. If the target is absent, complete and record the Phase 0 bootstrap before this gate. Never copy credentials into notes or output.
 2. Trace the upstream call chain for the requested page or capability; record behavior, states, errors, cancellation, cleanup, background behavior, and data ownership.
 3. Build a source-to-target ledger from [the template](assets/templates/migration-ledger.md). Classify each row P0, P1, or P2 before editing.
 4. Obtain current official HarmonyOS API, SDK, and protocol evidence for version-sensitive behavior. If it conflicts with source behavior, document the gap; do not imitate an API name.
@@ -34,6 +35,7 @@ Do not implement or accept a capability until its source behavior, HarmonyOS imp
 
 | Condition | Required decision |
 | --- | --- |
+| No HarmonyOS target exists | Bootstrap the smallest buildable target and record its package/module/toolchain identity. Do not migrate a source page or function as part of bootstrap. |
 | A page group lacks source-asset provenance or exact UI evidence on the final package | Do not start its new functional migration; keep unavailable behavior explicit. |
 | Device data can be deleted, overwritten, sent, or charged | Require a protocol contract, confirmation boundary, idempotency/late-event plan, and destructive-flow test. Otherwise `BLOCKED`. |
 | Android or iOS relies on background work, services, alarms, or lifecycle callbacks | Verify the HarmonyOS equivalent and limits. A platform constraint is not a bug to hide. |

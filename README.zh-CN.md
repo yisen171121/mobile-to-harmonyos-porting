@@ -3,9 +3,15 @@
 > [English](README.md) | 简体中文
 
 这是一个以证据为核心的 Codex Skill，用于将 Android、iOS、Flutter、React Native
-及共享原生能力，分阶段迁移或同步到既有 HarmonyOS 应用中。
+及共享原生能力，分阶段迁移或同步到既有或新初始化的 HarmonyOS 目标工程中。
 
 ![分阶段迁移顺序](assets/porting-order.svg)
+
+## 🏗️ 没有 HarmonyOS 应用也可以开始
+
+如果只有非 HarmonyOS 源项目，Skill 会先执行 **Phase 0** 目标工程初始化：只创建可构建、
+可启动的最小 HarmonyOS 工程，并记录包标识、模块边界、SDK 基线与启动路径。Phase 0 不迁移
+任何页面或功能；验证完成后，才开始强制执行“UI 优先、功能其次”的迁移顺序。
 
 ## ✨ 不可打破的迁移顺序
 
@@ -74,7 +80,7 @@ $mobile-to-harmonyos-porting migrate this source snapshot page by page, then fun
 ## ✅ 所需输入
 
 - 可读取的上游源项目快照及其访问/授权边界；
-- 已存在的 HarmonyOS 目标项目与当前 Git 状态；
+- 已存在的 HarmonyOS 目标项目，或创建并冻结最小 Phase 0 目标工程的授权；
 - 本次请求的页面与功能分类范围；
 - 支持的设备、系统、SDK 与固件；
 - 当行为与版本相关时，对应的官方 API、SDK 与协议资料；

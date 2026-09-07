@@ -1,8 +1,14 @@
 # Migration Playbook
 
+## 0. Bootstrap a New Target Only When Needed
+
+When no HarmonyOS project exists, create the smallest buildable target needed to establish package identity, module boundary, SDK baseline, and launch path. Record those choices and verify that the blank target builds and launches.
+
+Phase 0 is infrastructure only: do not claim a source page or functional category has migrated, invent a design system, or use substitute UI assets. Begin Phase A only after the bootstrap identity is frozen.
+
 ## 1. Freeze the Boundary
 
-Record source revision, target revision, dirty files, source license, build/package identity, device and OS version, SDK/firmware version, and requested scope. The source stays read-only. Use an isolated target branch or worktree when the target has user changes.
+Record source revision, target revision or bootstrap identity, dirty files, source license, build/package identity, device and OS version, SDK/firmware version, and requested scope. The source stays read-only. Use an isolated target branch or worktree when the target has user changes.
 
 Do not begin implementation if the source revision, target state, or requested capability is ambiguous.
 

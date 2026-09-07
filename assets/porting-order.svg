@@ -3,7 +3,8 @@
   <desc id="desc">Source snapshot flows to page UI groups, then accepted UI, then functional categories, then verified release evidence.</desc>
   <rect width="1200" height="360" fill="#f8fafc" rx="28"/>
   <text x="72" y="70" fill="#0f172a" font-family="Arial, sans-serif" font-size="31" font-weight="700">Stage the port in the only safe order</text>
-  <text x="72" y="108" fill="#475569" font-family="Arial, sans-serif" font-size="19">UI page groups first · functional categories second</text>
+  <text x="72" y="108" fill="#475569" font-family="Arial, sans-serif" font-size="19">Optional Phase 0 target bootstrap · UI page groups first · functional categories second</text>
+  <text x="72" y="140" fill="#64748b" font-family="Arial, sans-serif" font-size="16">No target yet? Bootstrap only the package, module, SDK baseline, and launch path before Phase A.</text>
   <g font-family="Arial, sans-serif" text-anchor="middle">
     <rect x="65" y="170" width="210" height="105" rx="18" fill="#e2e8f0"/>
     <text x="170" y="214" fill="#0f172a" font-size="21" font-weight="700">Source snapshot</text>

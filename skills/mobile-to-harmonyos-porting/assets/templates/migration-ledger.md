@@ -5,7 +5,8 @@
 | Field | Value |
 | --- | --- |
 | Source snapshot | |
-| Target snapshot | |
+| Target mode | Existing target / Phase 0 bootstrap |
+| Target snapshot or bootstrap identity | |
 | Source license / access boundary | |
 | Target branch or worktree | |
 | Target dirty-state disposition | |
