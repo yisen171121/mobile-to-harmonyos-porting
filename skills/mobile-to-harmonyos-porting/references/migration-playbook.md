@@ -12,7 +12,19 @@ Record source revision, target revision or bootstrap identity, dirty files, sour
 
 Do not begin implementation if the source revision, target state, or requested capability is ambiguous.
 
-## 2. Phase A: Page UI Migration
+## 2. Reconcile a Dirty Target Worktree
+
+A dirty target is not something to make clean by force. Before migration edits:
+
+1. Preserve the active tree and its user-owned state. Do not use reset, clean, stash, broad staging, or broad ignore as a substitute for reconciliation.
+2. Create or reuse a clean audit worktree at the exact target revision; do not inspect or build from a different snapshot and call it equivalent.
+3. Classify each changed or untracked path as one of: frozen user edit; recoverable source, document, or migration input; verified generated evidence or cache; binary/media pending provenance or LFS; or unknown.
+4. Recover only explicit verified source, document, and input paths in small reversible commits. For verified generated output, add only a narrow ignore rule and retain files on disk. Keep unknown and provenance-pending binary/media visible and `BLOCKED` with an owner and exit condition.
+5. Record path boundary, count or size, decision, evidence, and exit condition in the ledger. If a category is still unknown, do not stage, ignore, delete, or migrate through it.
+
+If the target is clean, record that fact and continue. A clean audit worktree proves the baseline only; it does not erase or reinterpret frozen user edits.
+
+## 3. Phase A: Page UI Migration
 
 Inventory source pages, routes, visual assets, navigation, typography, safe areas, loading, empty, permission, error, and disabled states. Record asset paths, hashes where practical, dimensions, source font files, and layout measurements. Group only related pages that can be accepted together.
 
@@ -27,7 +39,7 @@ For each page group:
 
 If source assets are missing, access/license is unclear, or a platform constraint prevents exact rendering or interaction, stop the page group as `BLOCKED` and ask the user. A written, element-specific user exception is the only way to record a deviation. UI acceptance proves only the page group; it does not prove real data, permissions, devices, network, lifecycle, or backend behavior.
 
-## 3. Phase B: Functional Category Migration
+## 4. Phase B: Functional Category Migration
 
 After its page group is accepted, migrate one category at a time:
 
@@ -42,8 +54,17 @@ After its page group is accepted, migrate one category at a time:
 
 Use current official HarmonyOS documentation and actual source call chains. Do not infer equivalence from similarly named APIs. If a required contract is absent, write the smallest diagnostic or test that demonstrates the gap and mark it `BLOCKED`.
 
-## 4. Vertical Slice and Handoff
+## 5. Vertical Slice, Throughput, and Handoff
 
 For one category row or cohesive row group: write normal, boundary, and failure tests first; make the smallest target-layer change; verify stale events, cancellation, timeout, retry, release, and concurrency where relevant; then bind results to source revision and final package identity.
 
+Use inexpensive source, asset, and narrow local checks per slice. Build the final package and use Previewer after a cohesive page group or integration milestone, not after every isolated visual edit. Batch read-only source inventory and same-condition comparison work where it stays traceable, but never concurrently edit the same target path or share one live device session.
+
+An isolated static UI candidate can establish source/resource or `CODE`/`LOCAL` evidence only. It is not final-package `DEVICE_UI`, functional, device, or page-group acceptance. For external blockers, record missing evidence, owner, and the next smallest safe action instead of repeatedly retrying the same probe.
+
 At the end of every slice, report changed files, evidence, `NOT TESTED`/`BLOCKED` items, risk, target Git state, and the next smallest slice.
+
+## 6. Progress Reporting
+
+Report workspace hygiene, source/code/local evidence, and end-to-end acceptance separately. Do not roll one into another. State a percentage only when the ledger defines a weighted denominator; otherwise use evidence labels and the exact blocker.
+
