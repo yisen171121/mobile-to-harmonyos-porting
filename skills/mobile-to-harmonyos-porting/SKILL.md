@@ -27,9 +27,16 @@ Do not mark the page group accepted or start its functional migration until ever
 ## First Actions
 
 1. Freeze source and target identities: revision, branch, dirty state, build/package identity, supported devices, SDK/firmware, and available credentials. If the target is absent, complete and record the Phase 0 bootstrap before this gate. Never copy credentials into notes or output.
-2. Trace the upstream call chain for the requested page or capability; record behavior, states, errors, cancellation, cleanup, background behavior, and data ownership.
-3. Build a source-to-target ledger from [the template](assets/templates/migration-ledger.md). Classify each row P0, P1, or P2 before editing.
-4. Obtain current official HarmonyOS API, SDK, and protocol evidence for version-sensitive behavior. If it conflicts with source behavior, document the gap; do not imitate an API name.
+2. If the target is materially dirty, record its disposition and complete the dirty-target reconciliation gate before any migration edit.
+3. Trace the upstream call chain for the requested page or capability; record behavior, states, errors, cancellation, cleanup, background behavior, and data ownership.
+4. Build a source-to-target ledger from [the template](assets/templates/migration-ledger.md). Classify each row P0, P1, or P2 before editing.
+5. Obtain current official HarmonyOS API, SDK, and protocol evidence for version-sensitive behavior. If it conflicts with source behavior, document the gap; do not imitate an API name.
+
+## Dirty Target Reconciliation
+
+A dirty target is an ownership and evidence issue, not an invitation to force it clean. Before migration edits, follow [the reconciliation workflow](references/migration-playbook.md#2-reconcile-a-dirty-target-worktree): preserve the active tree, inspect from a clean worktree at the exact target revision, and classify every path before deciding whether to recover, narrowly ignore, block, or leave it untouched.
+
+Do not use reset, clean, stash, broad staging, or broad ignore as a substitute for reconciliation. Unknown paths and binary/media with unresolved provenance remain visible and `BLOCKED`.
 
 ## Gates
 
@@ -42,7 +49,9 @@ Do not implement or accept a capability until its source behavior, HarmonyOS imp
 | Device data can be deleted, overwritten, sent, or charged | Require a protocol contract, confirmation boundary, idempotency/late-event plan, and destructive-flow test. Otherwise `BLOCKED`. |
 | Android or iOS relies on background work, services, alarms, or lifecycle callbacks | Verify the HarmonyOS equivalent and limits. A platform constraint is not a bug to hide. |
 | Tests or screenshots belong to another source snapshot or package | Do not transfer them. Rebuild, identify the package, and rerun relevant evidence. |
-| Target tree is dirty or device ownership/state is unknown | Isolate work, preserve changes, and pause device input. Do not reset, overwrite, send drafts, or alter user state. |
+| Target tree is dirty or device ownership/state is unknown | Preserve active state and pause device input. Reconcile the target from a clean audit worktree at the exact revision; do not reset, clean, stash, broadly stage, broadly ignore, overwrite, send drafts, or alter user state. |
+| A static candidate exists outside the final target integration | Record only source/resource or `CODE`/`LOCAL` evidence. It cannot satisfy final-package `DEVICE_UI`, functional, or real-device acceptance. |
+| A hardware, service, provenance, or device blocker persists | Record the missing evidence, owner, and smallest safe exit action. Do not repeatedly probe it or convert it into a progress claim. |
 
 Use [the playbook](references/migration-playbook.md) for phases, [evidence templates](references/evidence-templates.md) for records, and [failure modes](references/failure-modes.md) for destructive, asynchronous, or externally stateful paths.
 
@@ -61,3 +70,4 @@ For a wearable history page, first port and verify the list, loading, empty, per
 - “We can fix the SDK limitation in the page.”
 
 Each red flag returns to the ledger and the relevant gate. Do not turn an unverified claim into a success state.
+
