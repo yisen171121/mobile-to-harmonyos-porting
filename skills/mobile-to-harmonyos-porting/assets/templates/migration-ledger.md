@@ -14,6 +14,16 @@
 | Requested page and function scope | |
 | Exact UI equivalence standard | Every visible source element must match its source content, size, position, shape, style, asset, and visible state; only written, element-specific user exceptions may deviate. |
 
+## Workspace Reconciliation
+
+| Category | Path boundary / count / size | Decision | Evidence / exit condition |
+| --- | --- | --- | --- |
+| Frozen user edit | | Preserve, do not mix into migration work | |
+| Recoverable source / document / input | | Explicit-path recovery commit | |
+| Verified generated evidence / cache | | Narrow ignore; retain on disk | |
+| Binary / media pending provenance or LFS | | `BLOCKED`, keep visible | |
+| Unknown | | No stage, ignore, deletion, or migration | |
+
 ## Phase A: Page UI Matrix
 
 | Page group | Priority | Source behavior and routes | Source UI inventory and exact comparison | HarmonyOS UI mapping | Required states | Required `DEVICE_UI` proof | Status | Next action |
@@ -37,3 +47,12 @@
 | Risk | Why it remains open | Blocker or missing evidence | Owner / next smallest action |
 | --- | --- | --- | --- |
 | | | | |
+
+## Progress Snapshot
+
+| Measure | Basis / denominator | Status | Next action |
+| --- | --- | --- | --- |
+| Workspace hygiene / recoverability | | | |
+| Source, code, and local evidence | | | |
+| End-to-end page / functional / device acceptance | | | |
+
