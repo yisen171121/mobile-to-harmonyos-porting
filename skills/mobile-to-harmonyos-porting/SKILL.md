@@ -24,6 +24,12 @@ Use this cadence after a clean buildable entry and a usable Previewer path are e
 4. Update the ledger and acceptance board once per batch. Do not repeatedly probe Previewer without a confirmed usable control surface; batch pages under the same target identity, theme, font scale, and resolution.
 5. Keep P5 data, P6 services, and P7 BLE frozen behind their evidence gates. Maintain an explicit blocker list with missing evidence, owner, and smallest safe next action; do not repeatedly probe an unmet external prerequisite.
 
+## Parallel Worktree Delivery
+
+Use parallel writers only through isolated worktrees at the same recorded baseline. Assign each writer a non-overlapping page group and exclusive resources; shared routes, global state, resource indexes, build configuration, device commands, and the main ledger remain owned by one integrator.
+
+Each writer returns its changed-file list, source/evidence record, smallest gate result, and integration risk. The one integrator reviews and merges each result, runs batch/full builds and device evidence, and is the only writer of the final acceptance board. After integration and required evidence are complete, confirm every temporary worktree is merged or explicitly discarded, then remove it; never delete a worktree with unreviewed changes.
+
 ## Exact UI Equivalence and Asset Provenance
 
 Unless the user explicitly authorizes a scoped exception, every UI asset and visual decision must come from the migrated source snapshot. Do not generate, search for, purchase, substitute, reinterpret, or creatively improve UI material. Do not use “similar” system icons or platform defaults.
