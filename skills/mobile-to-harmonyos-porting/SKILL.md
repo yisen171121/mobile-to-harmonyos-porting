@@ -14,6 +14,16 @@ Treat a port as behavior preservation with explicit platform differences, never 
 2. **Functions second:** after the relevant page group is accepted, migrate one functional category at a time: data/storage, permissions, networking, device/BLE, background/lifecycle, or AI/tool behavior. A UI pass is not functional evidence.
 3. Do not merge unrelated page polish and functional categories into one slice. If a source feature requires its function to render safely, use explicit unavailable state until the function slice is verified.
 
+## Accelerated Evidence-Preserving Delivery
+
+Use this cadence after a clean buildable entry and a usable Previewer path are established; it accelerates UI work without lowering any gate.
+
+1. For each source page, capture its source hash, assets/fonts, measurements, visible state branches, and screenshot baseline once; reuse that record for every HarmonyOS slice.
+2. Migrate the real entry path in order: page UI → state → route → service. Keep `ui_baseline` for source assets and isolated hard-to-integrate visuals, never as the default acceptance path.
+3. Run only the relevant static gate and smallest module build per slice. Accumulate a default batch of four UI slices (never more than five), then run the entry gate suite, one unsigned HAP build, and one fixed-environment emulator/device pass. Keep independently captured screenshot, layout, and log evidence for each page.
+4. Update the ledger and acceptance board once per batch. Do not repeatedly probe Previewer without a confirmed usable control surface; batch pages under the same target identity, theme, font scale, and resolution.
+5. Keep P5 data, P6 services, and P7 BLE frozen behind their evidence gates. Maintain an explicit blocker list with missing evidence, owner, and smallest safe next action; do not repeatedly probe an unmet external prerequisite.
+
 ## Exact UI Equivalence and Asset Provenance
 
 Unless the user explicitly authorizes a scoped exception, every UI asset and visual decision must come from the migrated source snapshot. Do not generate, search for, purchase, substitute, reinterpret, or creatively improve UI material. Do not use “similar” system icons or platform defaults.
