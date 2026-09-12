@@ -30,6 +30,8 @@ Use parallel writers only through isolated worktrees at the same recorded baseli
 
 Each writer returns its changed-file list, source/evidence record, smallest gate result, and integration risk. The one integrator reviews and merges each result, runs batch/full builds and device evidence, and is the only writer of the final acceptance board. After integration and required evidence are complete, confirm every temporary worktree is merged or explicitly discarded, then remove it; never delete a worktree with unreviewed changes.
 
+Return integration findings to the original writer for correction by default. The integrator changes code only when the defect belongs to shared integration files, or the original writer is unavailable and the fix is small with a clear boundary. Re-run the affected gate and integration verification after every correction.
+
 ## Exact UI Equivalence and Asset Provenance
 
 Unless the user explicitly authorizes a scoped exception, every UI asset and visual decision must come from the migrated source snapshot. Do not generate, search for, purchase, substitute, reinterpret, or creatively improve UI material. Do not use “similar” system icons or platform defaults.
